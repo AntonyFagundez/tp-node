@@ -1,0 +1,42 @@
+
+<div class="container pt-2  text-right">
+  <a href="/logout" class="btn" style="background-color: rgba(244, 0, 0, 0.10); color:beige;" role="button"><strong>Cerrar Sesion</strong></a>
+</div>
+
+<div class="container text-center p-3">
+  <h1>Bienvenido: {{usuario}}</h1>
+</div>
+
+<div id="chat" style="overflow-x:hidden; width:80%; height:380px; margin: 0 auto;">
+
+
+  <div class="row">
+    {{#each novedades}}
+    <div title="Creado por: {{this.usuario}}" class="col-6 p-3" style="width:100%;">
+      <div class="p-3  bg-primary text-white" style="border-radius: 30px;">
+        <h3>{{this.messge}}</h3>
+        <small>Creado por: {{this.usuario}}</small>
+      </div>
+    </div>
+
+    {{/each}}
+  </div>
+
+
+</div>
+
+<div class="container text-center p-5">
+  <form action="/home" method="POST">
+    <textarea class="form-control" rows="3" type="text" name="messge"
+      placeholder="Escribe una nueva novedad..."></textarea>
+    <br>
+    <button class="btn btn-success btn-lg" type="submit">Enviar novedad</button>
+  </form>
+</div>
+
+<script>
+
+  var chatAbajo = document.getElementById("chat");
+  chatAbajo.scrollTop = chatAbajo.scrollHeight;
+
+</script>
